@@ -10,5 +10,7 @@ namespace OnlineShoppingStore.WebUI.Models
     {
         public IEnumerable<Product> Products { get; set; }
         public PagingInfoViewModel PagingInfo {get;set;}
+
+        public string CurrentCategory { get; set; }
     }
 }
