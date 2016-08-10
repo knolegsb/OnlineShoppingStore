@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OnlineShoppingStore.Domain.Entities;
+using OnlineShoppingStore.WebUI.Binders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +17,11 @@ namespace OnlineShoppingStore.WebUI
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            
         }
     }
 }
