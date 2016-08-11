@@ -67,6 +67,7 @@ namespace OnlineShoppingStore.WebUI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IProductRepository>().To<ProductRepository>();
+            kernel.Bind<IOrderProcessor>().To<OrderProcessor>();
 
             //Mock<IProductRepository> mock = new Mock<IProductRepository>();
             //mock.Setup(m => m.Products).Returns(new List<Product>

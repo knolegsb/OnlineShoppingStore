@@ -16,12 +16,24 @@ namespace OnlineShoppingStore.WebUI.Controllers
             repository = repo;
         }
 
+        //public PartialViewResult Menu(string category = null, bool horizontalLayout = false)
+        //{
+        //    ViewBag.SelectedCategory = category;
+
+        //    IEnumerable<string> categories = repository.Products.Select(x => x.Category).Distinct().OrderBy(x => x);
+
+        //    string viewName = horizontalLayout ? "Menuhorizontal" : "Menu";
+        //    return PartialView(viewName, categories);
+        //}
+
         public PartialViewResult Menu(string category = null)
         {
             ViewBag.SelectedCategory = category;
 
             IEnumerable<string> categories = repository.Products.Select(x => x.Category).Distinct().OrderBy(x => x);
-            return PartialView(categories);
+
+            //string viewName = horizontalLayout ? "Menuhorizontal" : "Menu";
+            return PartialView("FlexMenu", categories);
         }
     }
 }
