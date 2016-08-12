@@ -68,6 +68,7 @@ namespace OnlineShoppingStore.WebUI.App_Start
         {
             kernel.Bind<IProductRepository>().To<ProductRepository>();
             kernel.Bind<IOrderProcessor>().To<OrderProcessor>();
+            kernel.Bind<IAuthProvider>().To<FormAuthProvider>();
 
             //Mock<IProductRepository> mock = new Mock<IProductRepository>();
             //mock.Setup(m => m.Products).Returns(new List<Product>

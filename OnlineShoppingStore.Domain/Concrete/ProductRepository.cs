@@ -19,7 +19,7 @@ namespace OnlineShoppingStore.Domain.Concrete
                 return context.Products;
             }
         }
-
+                
         public void SaveProduct(Product product)
         {
             if (product.ProductId == 0)
@@ -35,9 +35,22 @@ namespace OnlineShoppingStore.Domain.Concrete
                     productEntry.Description = product.Description;
                     productEntry.Price = product.Price;
                     productEntry.Category = product.Category;
+                    productEntry.ImageData = product.ImageData;
+                    productEntry.ImageMimeType = product.ImageMimeType;
                 }
             }
             context.SaveChanges();
+        }
+
+        public Product DeleteProduct(int productId)
+        {
+            var productEntry = context.Products.Find(productId);
+            if (productEntry != null)
+            {
+                context.Products.Remove(productEntry);
+                context.SaveChanges();
+            }
+            return productEntry;
         }
     }
 }

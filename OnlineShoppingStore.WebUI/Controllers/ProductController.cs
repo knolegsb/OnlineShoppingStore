@@ -1,4 +1,5 @@
 ﻿using OnlineShoppingStore.Domain.Abstract;
+using OnlineShoppingStore.Domain.Entities;
 using OnlineShoppingStore.WebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,19 @@ namespace OnlineShoppingStore.WebUI.Controllers
             };
 
             return View(model);
+        }
+
+        public FileContentResult GetImage(int productId)
+        {
+            Product product = repository.Products.FirstOrDefault(p => p.ProductId == productId);
+            if (product != null)
+            {
+                return File(product.ImageData, product.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
